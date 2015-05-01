@@ -44,4 +44,14 @@ describe(Word) do
     end
   end
 
+  describe('.find') do
+    it ('will return an object that contains the input id') do
+      test_word1 = Word.new({:word => 'lion'})
+      test_word1.save()
+      test_word2 = Word.new({:word => 'zebra'})
+      test_word2.save()
+      expect(Word.find(2)).to(eq(test_word2))
+    end
+  end
+
 end

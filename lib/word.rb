@@ -20,4 +20,12 @@ class Word
   define_singleton_method (:clear) do
     @@words = []
   end
+
+  define_singleton_method (:find) do |identification|
+    @@words.each() do |word|
+      if word.id() == identification.to_i()
+        return word
+      end
+    end
+  end
 end
