@@ -1,5 +1,6 @@
 require 'rspec'
 require 'word'
+require 'definition'
 
 describe(Word) do
 
@@ -51,6 +52,22 @@ describe(Word) do
       test_word2 = Word.new({:word => 'zebra'})
       test_word2.save()
       expect(Word.find(2)).to(eq(test_word2))
+    end
+  end
+
+  describe('#definitions') do
+    it('returns all definitions associated with a word object') do
+      test_word = Word.new({:word => 'jaguar'})
+      expect(test_word.definitions()).to(eq([]))
+    end
+  end
+
+  describe('#definition_push') do
+    it('pushes a definition object into the Word class and attaches it to a specific Word object') do
+      test_definition = Definition.new({:definition => "a stripy horsey"})
+      test_word = Word.new({:word => "zebra"})
+      test_word.definition_push(test_definition)
+      expect(test_word.definitions()).to(eq([test_definition]))
     end
   end
 
