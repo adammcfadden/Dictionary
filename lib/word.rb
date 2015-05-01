@@ -1,13 +1,16 @@
 class Word
 
   @@words = []
+  @@indexer = []
+
 
   attr_reader(:word, :id)
 
   define_method(:initialize) do |attributes|
     @word = attributes.fetch(:word)
-    @id = nil
     @definitions = []
+    @id = @@indexer.length() + 1
+    @@indexer.push(nil)
   end
 
   define_singleton_method(:all) do
@@ -15,12 +18,12 @@ class Word
   end
 
   define_method(:save) do
-    @id = @@words.length() + 1
     @@words.push(self)
   end
 
   define_singleton_method (:clear) do
     @@words = []
+    @@indexer = []
   end
 
   define_singleton_method (:find) do |identification|

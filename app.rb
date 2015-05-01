@@ -52,11 +52,11 @@ end
 post ('/delete/:id') do
   id = params.fetch('id')
   Word.delete_word(id)
-  all_word_objects = Word.all()
-  Word.clear()
-  all_word_objects.each() do |word_object|
-    word_object.save()
-  end
+  # all_word_objects = Word.all()
+  # Word.clear()
+  # all_word_objects.each() do |word_object|
+  #   word_object.save()
+  # end
   @words = Word.all()
   erb(:index)
 end
