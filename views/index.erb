@@ -1,0 +1,12 @@
+<h1>Dictionary</h1>
+
+<ul>
+  <% if @words != nil %>
+    <% @words.each() do |word| %>
+      <li><%= word.word() %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+
+<h3><a id="new_word" href="/add_new_word">Click here to add a new word</a></h3>
