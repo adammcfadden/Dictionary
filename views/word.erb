@@ -1,4 +1,6 @@
+<br>
 <h2><%= @word.word() %></h2>
+<br>
 <ol>
   <% @word.definitions().each() do |definition| %>
   <li><%= definition.definition() %>
@@ -8,5 +10,9 @@
 <div class="form-group">
   <form action="/word/definitions/<%= @word.id() %>" method="get">
       <button type="submit" id="add_definition" class="btn btn-primary">Add a Definition</button>
+  </form>
+  <br>
+  <form action="/index" method="get">
+      <button type="submit" id="index" class="btn btn-primary">Return to Dictionary</button>
   </form>
 </div>

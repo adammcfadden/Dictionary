@@ -18,7 +18,7 @@ post('/index') do
   definition = Definition.new({:definition => params.fetch('definition')})
   word.definition_push(definition)
   word.save()
-  @words = Word.all
+  @words = Word.all()
   erb(:index)
 end
 
@@ -42,4 +42,9 @@ post('/word/:id') do
   word.save()
   @word = Word.find(id)
   erb (:word)
+end
+
+get ('/index') do
+  @words = Word.all()
+  erb(:index)
 end

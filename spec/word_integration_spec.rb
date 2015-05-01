@@ -6,7 +6,7 @@ set(:show_exceptions, false)
 describe('the word path', {:type => :feature}) do
   it('load an index page, click to add a new word, direct to word input page, allow user to input a new word and definition. Display that word on the index page') do
     visit('/')
-    click_link('Click here to add a new word')
+    click_button('add_word')
     fill_in('word', :with => 'Jaguar')
     fill_in('definition', :with => 'King of the jungle')
     click_button('submit_forms')
@@ -15,7 +15,7 @@ describe('the word path', {:type => :feature}) do
 
   it('creates a new word, clicks the word in the dictionary list, clicks to add a definition, enters new definition, clicks submit, finds that definition on word page') do
     visit('/')
-    click_link('Click here to add a new word')
+    click_button('add_word')
     fill_in('word', :with => 'Jaguar')
     fill_in('definition', :with => 'King of the jungle')
     click_button('submit_forms')

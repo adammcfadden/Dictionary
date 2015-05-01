@@ -1,5 +1,5 @@
 <h1>Dictionary</h1>
-
+<br>
 <ul>
   <% if @words != nil %>
     <% @words.each() do |word| %>
@@ -7,6 +7,7 @@
     <% end %>
   <% end %>
 </ul>
-
-
-<h3><a id="new_word" href="/add_new_word">Click here to add a new word</a></h3>
+<br>
+<form action="/add_new_word" method="get">
+    <button type="submit" id="add_word" class="btn btn-primary">Add a New Word</button>
+</form>
