@@ -37,4 +37,11 @@ describe(Word) do
     end
   end
 
+  describe('#id') do
+    it('will return the id tag given to a Word object') do
+      test_word = Word.new({:word => 'panda'})
+      expect(test_word.id()).to(eq(1))
+    end
+  end
+
 end
