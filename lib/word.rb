@@ -6,7 +6,7 @@ class Word
 
   define_method(:initialize) do |attributes|
     @word = attributes.fetch(:word)
-    @id = @@words.length() + 1
+    @id = nil
     @definitions = []
   end
 
@@ -15,6 +15,7 @@ class Word
   end
 
   define_method(:save) do
+    @id = @@words.length() + 1
     @@words.push(self)
   end
 
@@ -34,7 +35,12 @@ class Word
     @definitions
   end
 
-  define_method (:definition_push)do |definition|
+  define_method (:definition_push) do |definition|
     @definitions.push(definition)
+  end
+
+  define_singleton_method (:delete_word) do |identification|
+    identification = (identification.to_i() - 1)
+    @@words.delete_at(identification)
   end
 end

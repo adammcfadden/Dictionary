@@ -15,4 +15,8 @@
   <form action="/index" method="get">
       <button type="submit" id="index" class="btn btn-primary">Return to Dictionary</button>
   </form>
+  <br>
+  <form action="/delete/<%= @word.id() %>" method="post">
+      <button type="submit" id="delete" class="btn btn-danger">Delete this Word</button>
+  </form>
 </div>

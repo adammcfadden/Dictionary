@@ -3,6 +3,10 @@ require './app'
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
+before do
+  Word.clear()
+end
+
 describe('the word path', {:type => :feature}) do
   it('load an index page, click to add a new word, direct to word input page, allow user to input a new word and definition. Display that word on the index page') do
     visit('/')
@@ -20,6 +24,8 @@ describe('the word path', {:type => :feature}) do
     fill_in('definition', :with => 'King of the jungle')
     click_button('submit_forms')
     click_link('word1')
+    #click_on("add_definition")
+    #page.find('add_definition').click
     click_button('add_definition')
     fill_in('add_definition', :with => 'A relative of the panther')
     click_button('submit_definition')
