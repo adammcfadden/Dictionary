@@ -1,10 +1,12 @@
+<h2><%= @word.word() %></h2>
+<ol>
+  <% @word.definitions().each() do |definition| %>
+  <li><%= definition.definition() %>
+  <% end %>
+</ol>
+<br>
 <div class="form-group">
-  <form class="form-control" action="/index" method="post">
-    <label for="word">Enter a Word</label>
-    <input id="word" type="text" name="word" class="form-control">
-    <label for="definition">Enter a Definition</label>
-    <input id="definition" type="text" name="definition" class="form-control">
-    <br>
-    <button type="submit" id="submit_forms" class="btn btn-primary">Submit</button>
+  <form action="/word/definitions/<%= @word.id() %>" method="get">
+      <button type="submit" id="add_definition" class="btn btn-primary">Add a Definition</button>
   </form>
 </div>
