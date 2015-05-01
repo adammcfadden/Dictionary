@@ -37,5 +37,4 @@ class Word
   define_method (:definition_push)do |definition|
     @definitions.push(definition)
   end
-
 end
